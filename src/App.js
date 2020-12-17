@@ -14,7 +14,6 @@ import Clouds from './images/Clouds.png';
 
 const App = () => {
 
-  const API_KEY = "ea7252d6c18b456727930e25448f38d6";
 
   const [data, setData] = useState({});
   const [search, setSearch] = useState('');
@@ -30,7 +29,7 @@ const App = () => {
 
 
   const getWeather = async () => {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}`);
     const data = await response.json();
     setData(data);
     setHello([data]);
